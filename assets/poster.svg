@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#f3ede1"/>
+  <g fill="none" stroke="#2a2a28" stroke-width="1.5" opacity="0.75">
+    <line x1="480" y1="760" x2="960" y2="460"/>
+    <line x1="960" y1="460" x2="1440" y2="760"/>
+    <rect x="580" y="620" width="760" height="260"/>
+    <line x1="960" y1="620" x2="960" y2="880"/>
+    <rect x="700" y="720" width="110" height="160"/>
+    <rect x="1120" y="700" width="90" height="90"/>
+    <rect x="1180" y="500" width="60" height="130"/>
+  </g>
+  <text x="960" y="990" font-family="Georgia, serif" font-size="26" fill="#2a2a28" text-anchor="middle" opacity="0.55">esboço provisório — substituir pelo Frame A gerado</text>
+</svg>
