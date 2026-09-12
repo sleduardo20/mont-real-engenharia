@@ -1,239 +1,239 @@
 (function () {
   'use strict';
 
-  var reduzirMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ------------------------------------------------------------------
-  // Tela de carregamento
+  // Loading screen
   // ------------------------------------------------------------------
-  var telaCarregamento = document.getElementById('tela-carregamento');
-  var carregamentoLiberado = false;
+  var loadingScreen = document.getElementById('loading-screen');
+  var loadingReleased = false;
 
-  function liberarCarregamento() {
-    if (carregamentoLiberado) return;
-    carregamentoLiberado = true;
-    telaCarregamento.classList.add('oculta');
+  function releaseLoading() {
+    if (loadingReleased) return;
+    loadingReleased = true;
+    loadingScreen.classList.add('hidden');
   }
-  setTimeout(liberarCarregamento, 6000);
+  setTimeout(releaseLoading, 6000);
 
   // ------------------------------------------------------------------
-  // Header com fundo ao rolar
+  // Header background on scroll
   // ------------------------------------------------------------------
   var header = document.getElementById('header');
-  function atualizarHeader() {
-    if (window.scrollY > 40) header.classList.add('rolado');
-    else header.classList.remove('rolado');
+  function updateHeader() {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
   }
-  window.addEventListener('scroll', atualizarHeader, { passive: true });
-  atualizarHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
 
   // ------------------------------------------------------------------
-  // Menu mobile
+  // Mobile menu
   // ------------------------------------------------------------------
-  var menuMobile = document.getElementById('menu-mobile');
-  var botaoMenu = document.getElementById('botao-menu');
-  var botaoFecharMenu = document.getElementById('botao-fechar-menu');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var menuButton = document.getElementById('menu-button');
+  var closeMenuButton = document.getElementById('close-menu-button');
 
-  function abrirMenu() { menuMobile.classList.add('aberto'); }
-  function fecharMenu() { menuMobile.classList.remove('aberto'); }
+  function openMenu() { mobileMenu.classList.add('open'); }
+  function closeMenu() { mobileMenu.classList.remove('open'); }
 
-  if (botaoMenu) botaoMenu.addEventListener('click', abrirMenu);
-  if (botaoFecharMenu) botaoFecharMenu.addEventListener('click', fecharMenu);
-  menuMobile.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', fecharMenu);
+  if (menuButton) menuButton.addEventListener('click', openMenu);
+  if (closeMenuButton) closeMenuButton.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
   });
 
   // ------------------------------------------------------------------
-  // HERO — scroll binding do vídeo
+  // HERO — scroll-bound video
   // ------------------------------------------------------------------
-  var heroSecao = document.getElementById('hero');
+  var heroSection = document.getElementById('hero');
   var heroVideo = document.getElementById('hero-video');
   var heroPoster = document.getElementById('hero-poster');
-  var heroBarra = document.getElementById('hero-barra');
-  var heroContador = document.getElementById('hero-contador');
-  var heroTitulo = document.getElementById('hero-titulo');
-  var heroSubtitulo = document.getElementById('hero-subtitulo');
+  var heroProgressFill = document.getElementById('hero-progress-fill');
+  var heroCounter = document.getElementById('hero-counter');
+  var heroTitle = document.getElementById('hero-title');
+  var heroSubtitle = document.getElementById('hero-subtitle');
 
-  var usaMobile = window.matchMedia('(max-width: 820px) and (orientation: portrait)').matches;
-  var origemVideo = usaMobile ? 'assets/hero-mobile.mp4' : 'assets/hero.mp4';
+  var useMobile = window.matchMedia('(max-width: 820px) and (orientation: portrait)').matches;
+  var videoSource = useMobile ? 'assets/hero-mobile.mp4' : 'assets/hero.mp4';
 
-  var videoDuracao = 0;
-  var videoPronto = false;
-  var destravadoIOS = false;
+  var videoDuration = 0;
+  var videoReady = false;
+  var iosUnlocked = false;
 
-  var mensagens = [
-    { limite: 0, titulo: 'Toda casa começa num traço', sub: 'Role a página e acompanhe uma casa de alto padrão nascer do papel até a chave na mão — é assim que a Mont Real Engenharia conduz cada projeto.' },
-    { limite: 0.35, titulo: 'O projeto ganha estrutura', sub: 'Cálculo estrutural, engenharia e cronograma físico-financeiro definidos antes do primeiro tijolo.' },
-    { limite: 0.7, titulo: 'A obra sai do papel', sub: 'Execução acompanhada de perto, com controle de qualidade em cada etapa do canteiro.' },
-    { limite: 0.92, titulo: 'Do esboço à chave na mão', sub: 'Do traço a lápis à entrega final — o mesmo padrão de rigor técnico, do início ao fim.' }
+  var messages = [
+    { threshold: 0, title: 'Toda casa começa num traço', subtitle: 'Role a página e acompanhe uma casa de alto padrão nascer do papel até a chave na mão — é assim que a Mont Real Engenharia conduz cada projeto.' },
+    { threshold: 0.35, title: 'O projeto ganha estrutura', subtitle: 'Cálculo estrutural, engenharia e cronograma físico-financeiro definidos antes do primeiro tijolo.' },
+    { threshold: 0.7, title: 'A obra sai do papel', subtitle: 'Execução acompanhada de perto, com controle de qualidade em cada etapa do canteiro.' },
+    { threshold: 0.92, title: 'Do esboço à chave na mão', subtitle: 'Do traço a lápis à entrega final — o mesmo padrão de rigor técnico, do início ao fim.' }
   ];
 
-  function tentarCarregarVideo() {
-    heroVideo.src = origemVideo;
+  function tryLoadVideo() {
+    heroVideo.src = videoSource;
     heroVideo.load();
   }
 
   heroVideo.addEventListener('loadedmetadata', function () {
-    videoDuracao = heroVideo.duration || 0;
+    videoDuration = heroVideo.duration || 0;
   });
 
   heroVideo.addEventListener('canplaythrough', function () {
-    videoPronto = true;
-    heroVideo.classList.add('pronto');
-    liberarCarregamento();
+    videoReady = true;
+    heroVideo.classList.add('ready');
+    releaseLoading();
   });
 
   heroVideo.addEventListener('error', function () {
-    // Sem o arquivo ainda: mantém o poster e não trava o site.
-    liberarCarregamento();
+    // File not available yet: keep the poster and don't block the site.
+    releaseLoading();
   });
 
-  tentarCarregarVideo();
+  tryLoadVideo();
 
-  function destravarIOS() {
-    if (destravadoIOS) return;
-    destravadoIOS = true;
-    var p = heroVideo.play();
-    if (p && p.then) {
-      p.then(function () { heroVideo.pause(); }).catch(function () {});
+  function unlockIOS() {
+    if (iosUnlocked) return;
+    iosUnlocked = true;
+    var playPromise = heroVideo.play();
+    if (playPromise && playPromise.then) {
+      playPromise.then(function () { heroVideo.pause(); }).catch(function () {});
     }
   }
-  window.addEventListener('touchstart', destravarIOS, { once: true, passive: true });
-  window.addEventListener('scroll', destravarIOS, { once: true, passive: true });
+  window.addEventListener('touchstart', unlockIOS, { once: true, passive: true });
+  window.addEventListener('scroll', unlockIOS, { once: true, passive: true });
 
-  function mensagemParaProgresso(p) {
-    var escolhida = mensagens[0];
-    for (var i = 0; i < mensagens.length; i++) {
-      if (p >= mensagens[i].limite) escolhida = mensagens[i];
+  function messageForProgress(p) {
+    var chosen = messages[0];
+    for (var i = 0; i < messages.length; i++) {
+      if (p >= messages[i].threshold) chosen = messages[i];
     }
-    return escolhida;
+    return chosen;
   }
 
-  var mensagemAtual = mensagens[0];
+  var currentMessage = messages[0];
 
-  function aplicarProgressoHero(p) {
+  function applyHeroProgress(p) {
     p = Math.min(1, Math.max(0, p));
 
-    heroBarra.style.width = (p * 100) + '%';
-    heroContador.textContent = Math.round(p * 100) + '%';
+    heroProgressFill.style.width = (p * 100) + '%';
+    heroCounter.textContent = Math.round(p * 100) + '%';
 
-    var msg = mensagemParaProgresso(p);
-    if (msg !== mensagemAtual) {
-      mensagemAtual = msg;
-      heroTitulo.textContent = msg.titulo;
-      heroSubtitulo.textContent = msg.sub;
+    var msg = messageForProgress(p);
+    if (msg !== currentMessage) {
+      currentMessage = msg;
+      heroTitle.textContent = msg.title;
+      heroSubtitle.textContent = msg.subtitle;
     }
 
-    if (videoPronto && videoDuracao > 0) {
+    if (videoReady && videoDuration > 0) {
       var readyState = heroVideo.readyState;
       if (readyState >= 2) {
-        heroVideo.currentTime = p * videoDuracao;
+        heroVideo.currentTime = p * videoDuration;
       }
     }
   }
 
-  function progressoHero() {
-    var rect = heroSecao.getBoundingClientRect();
-    var alturaTotal = heroSecao.offsetHeight - window.innerHeight;
-    if (alturaTotal <= 0) return 0;
-    var rolado = -rect.top;
-    return rolado / alturaTotal;
+  function heroProgress() {
+    var rect = heroSection.getBoundingClientRect();
+    var totalHeight = heroSection.offsetHeight - window.innerHeight;
+    if (totalHeight <= 0) return 0;
+    var scrolledAmount = -rect.top;
+    return scrolledAmount / totalHeight;
   }
 
-  var tickAgendado = false;
-  function agendarTick() {
-    if (tickAgendado) return;
-    tickAgendado = true;
+  var tickScheduled = false;
+  function scheduleTick() {
+    if (tickScheduled) return;
+    tickScheduled = true;
     if (document.hidden) {
-      aplicarProgressoHero(progressoHero());
-      tickAgendado = false;
+      applyHeroProgress(heroProgress());
+      tickScheduled = false;
       return;
     }
     requestAnimationFrame(function () {
-      aplicarProgressoHero(progressoHero());
-      tickAgendado = false;
+      applyHeroProgress(heroProgress());
+      tickScheduled = false;
     });
   }
 
-  window.addEventListener('scroll', agendarTick, { passive: true });
-  window.addEventListener('resize', agendarTick);
-  agendarTick();
+  window.addEventListener('scroll', scheduleTick, { passive: true });
+  window.addEventListener('resize', scheduleTick);
+  scheduleTick();
 
   // ------------------------------------------------------------------
-  // Reveals com IntersectionObserver
+  // Reveals via IntersectionObserver
   // ------------------------------------------------------------------
-  var elementosRevelar = document.querySelectorAll('.revelar');
-  if ('IntersectionObserver' in window && !reduzirMovimento) {
-    var observador = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (entrada, indice) {
-        if (entrada.isIntersecting) {
+  var revealElements = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, index) {
+        if (entry.isIntersecting) {
           setTimeout(function () {
-            entrada.target.classList.add('visivel');
-          }, (indice % 6) * 70);
-          observador.unobserve(entrada.target);
+            entry.target.classList.add('visible');
+          }, (index % 6) * 70);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
-    elementosRevelar.forEach(function (el) { observador.observe(el); });
+    revealElements.forEach(function (el) { revealObserver.observe(el); });
   } else {
-    elementosRevelar.forEach(function (el) { el.classList.add('visivel'); });
+    revealElements.forEach(function (el) { el.classList.add('visible'); });
   }
 
   // ------------------------------------------------------------------
-  // Contadores animados
+  // Animated counters
   // ------------------------------------------------------------------
-  var contadores = document.querySelectorAll('.contador-num');
-  function animarContador(el) {
-    var alvo = parseFloat(el.getAttribute('data-alvo'));
-    var sufixo = el.getAttribute('data-sufixo') || '';
-    var duracao = 1400;
-    var inicio = null;
+  var counters = document.querySelectorAll('.counter-num');
+  function animateCounter(el) {
+    var target = parseFloat(el.getAttribute('data-target'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1400;
+    var start = null;
 
-    function passo(timestamp) {
-      if (!inicio) inicio = timestamp;
-      var progresso = Math.min(1, (timestamp - inicio) / duracao);
-      var valor = Math.round(alvo * progresso);
-      el.textContent = valor + (sufixo ? sufixo : '');
-      if (progresso < 1) requestAnimationFrame(passo);
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min(1, (timestamp - start) / duration);
+      var value = Math.round(target * progress);
+      el.textContent = value + (suffix ? suffix : '');
+      if (progress < 1) requestAnimationFrame(step);
     }
-    requestAnimationFrame(passo);
+    requestAnimationFrame(step);
   }
 
   if ('IntersectionObserver' in window) {
-    var observadorContador = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (entrada) {
-        if (entrada.isIntersecting) {
-          animarContador(entrada.target);
-          observadorContador.unobserve(entrada.target);
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.6 });
-    contadores.forEach(function (el) { observadorContador.observe(el); });
+    counters.forEach(function (el) { counterObserver.observe(el); });
   } else {
-    contadores.forEach(animarContador);
+    counters.forEach(animateCounter);
   }
 
   // ------------------------------------------------------------------
-  // FAQ acordeão
+  // FAQ accordion
   // ------------------------------------------------------------------
   document.querySelectorAll('.faq-item').forEach(function (item) {
-    var pergunta = item.querySelector('.faq-pergunta');
-    pergunta.addEventListener('click', function () {
-      var jaAberto = item.classList.contains('aberto');
-      document.querySelectorAll('.faq-item.aberto').forEach(function (outro) {
-        outro.classList.remove('aberto');
+    var question = item.querySelector('.faq-question');
+    question.addEventListener('click', function () {
+      var alreadyOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (other) {
+        other.classList.remove('open');
       });
-      if (!jaAberto) item.classList.add('aberto');
+      if (!alreadyOpen) item.classList.add('open');
     });
   });
 
   // ------------------------------------------------------------------
-  // Formulário de contato (placeholder — plugar backend real depois)
+  // Contact form (placeholder — wire up a real backend later)
   // ------------------------------------------------------------------
-  var formulario = document.getElementById('formulario-contato');
-  if (formulario) {
-    formulario.addEventListener('submit', function (evento) {
-      evento.preventDefault();
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (event) {
+      event.preventDefault();
       alert('Formulário pronto na interface — falta conectar a um serviço de envio (e-mail, CRM ou API) para receber as mensagens de verdade.');
     });
   }
