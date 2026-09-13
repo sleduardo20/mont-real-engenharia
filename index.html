@@ -100,7 +100,6 @@
   <section class="about" id="about">
     <div class="container">
       <div class="about-text reveal">
-        <span class="label">Quem somos</span>
         <h2 style="font-size: var(--size-3xl); color: var(--metal-050); margin-bottom: var(--space-3);">Engenharia com a precisão de um projeto e a sensibilidade de quem entrega um lar</h2>
         <p>A Mont Real Engenharia nasceu para unir dois mundos que raramente andam juntos: o rigor técnico de uma engenharia que responde por licitações e obras públicas, e o cuidado artesanal exigido por uma casa de alto padrão.</p>
         <p>Do primeiro estudo de viabilidade ao último acabamento, cada etapa é conduzida pela mesma equipe — projeto, engenharia, execução e avaliação —, o que elimina retrabalho, atrasos e surpresas no orçamento.</p>
@@ -127,47 +126,64 @@
   <section id="services">
     <div class="container">
       <div class="section-header reveal">
-        <span class="label">O que fazemos</span>
         <h2>Seis frentes, uma única responsabilidade</h2>
-        <p>Do papel ao registro em cartório, cuidamos de cada etapa que envolve construir, reformar ou avaliar um imóvel.</p>
+        <p>Do papel ao registro em cartório, cuidamos de cada etapa que envolve construir, reformar ou avaliar um imóvel. Clique numa frente para falar diretamente sobre ela.</p>
       </div>
-      <div class="services-grid">
+      <div class="services-list">
 
-        <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></div>
-          <h3>Projetos de Engenharia</h3>
-          <p>Estudos, projetos arquitetônicos, estruturais e complementares desenvolvidos por equipe técnica própria, do zero à aprovação.</p>
-        </div>
+        <button class="service-row reveal" data-service="Projetos de Engenharia">
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></span>
+          <span class="service-copy">
+            <span class="service-title">Projetos de Engenharia</span>
+            <span class="service-desc">Estudos, projetos arquitetônicos, estruturais e complementares desenvolvidos por equipe técnica própria, do zero à aprovação.</span>
+          </span>
+          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
 
-        <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-          <h3>Financiamento Imobiliário</h3>
-          <p>Estruturação e acompanhamento de crédito para construção e aquisição, com simulação e suporte em toda a documentação.</p>
-        </div>
+        <button class="service-row reveal" data-service="Financiamento Imobiliário">
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+          <span class="service-copy">
+            <span class="service-title">Financiamento Imobiliário</span>
+            <span class="service-desc">Estruturação e acompanhamento de crédito para construção e aquisição, com simulação e suporte em toda a documentação.</span>
+          </span>
+          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
 
-        <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2v6h6M6 22h12a2 2 0 002-2V8l-6-6H6a2 2 0 00-2 2v16a2 2 0 002 2zM10 13h4M10 17h4"/></svg></div>
-          <h3>Reforma e Construções</h3>
-          <p>Reformas completas e construções sob medida, com cronograma físico-financeiro claro do primeiro ao último dia de obra.</p>
-        </div>
+        <button class="service-row reveal" data-service="Reforma e Construções">
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2v6h6M6 22h12a2 2 0 002-2V8l-6-6H6a2 2 0 00-2 2v16a2 2 0 002 2zM10 13h4M10 17h4"/></svg></span>
+          <span class="service-copy">
+            <span class="service-title">Reforma e Construções</span>
+            <span class="service-desc">Reformas completas e construções sob medida, com cronograma físico-financeiro claro do primeiro ao último dia de obra.</span>
+          </span>
+          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
 
-        <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l5-3 5 3v10M14 20V6l6-2v16"/></svg></div>
-          <h3>Execução de Obras Públicas</h3>
-          <p>Gestão e execução de obras contratadas junto a órgãos públicos, com controle de qualidade e prestação de contas rigorosa.</p>
-        </div>
+        <button class="service-row reveal" data-service="Execução de Obras Públicas">
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l5-3 5 3v10M14 20V6l6-2v16"/></svg></span>
+          <span class="service-copy">
+            <span class="service-title">Execução de Obras Públicas</span>
+            <span class="service-desc">Gestão e execução de obras contratadas junto a órgãos públicos, com controle de qualidade e prestação de contas rigorosa.</span>
+          </span>
+          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
 
-        <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-          <h3>Especialista em Licitações</h3>
-          <p>Elaboração de propostas técnicas e preparo documental para participação em processos licitatórios com segurança jurídica.</p>
-        </div>
+        <button class="service-row reveal" data-service="Licitações">
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+          <span class="service-copy">
+            <span class="service-title">Especialista em Licitações</span>
+            <span class="service-desc">Elaboração de propostas técnicas e preparo documental para participação em processos licitatórios com segurança jurídica.</span>
+          </span>
+          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
 
-        <div class="service-card reveal">
-          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35"/></svg></div>
-          <h3>Avaliação de Imóveis</h3>
-          <p>Laudos técnicos de avaliação para compra, venda, garantia bancária ou processos judiciais, seguindo normas da ABNT.</p>
-        </div>
+        <button class="service-row reveal" data-service="Avaliação de Imóveis">
+          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35"/></svg></span>
+          <span class="service-copy">
+            <span class="service-title">Avaliação de Imóveis</span>
+            <span class="service-desc">Laudos técnicos de avaliação para compra, venda, garantia bancária ou processos judiciais, seguindo normas da ABNT.</span>
+          </span>
+          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
 
       </div>
     </div>
@@ -191,7 +207,6 @@
         </svg>
       </div>
       <div class="popular-text reveal">
-        <span class="label">Casas de médio padrão</span>
         <h2 style="font-size: var(--size-3xl); color: var(--metal-050); margin-bottom: var(--space-2);">Alto padrão técnico também nas casas mais populares</h2>
         <p>Nem todo projeto precisa de mármore para exigir engenharia séria. Aplicamos o mesmo rigor de cálculo estrutural, prazo e financiamento em residências de médio padrão e programas habitacionais.</p>
         <ul class="popular-list">
@@ -229,7 +244,6 @@
   <section id="process">
     <div class="container">
       <div class="section-header reveal">
-        <span class="label">Como trabalhamos</span>
         <h2>Da planta à chave na mão</h2>
         <p>Um processo transparente, com marcos claros em cada etapa da obra.</p>
       </div>
@@ -258,7 +272,6 @@
   <section id="portfolio">
     <div class="container">
       <div class="section-header reveal">
-        <span class="label">Portfólio</span>
         <h2>Projetos que já saíram do papel</h2>
         <p>Substitua estas composições pelas fotos reais das obras da Mont Real assim que estiverem disponíveis.</p>
       </div>
@@ -277,31 +290,41 @@
   <section class="testimonials" id="testimonials">
     <div class="container">
       <div class="section-header reveal">
-        <span class="label">Depoimentos</span>
         <h2>Quem construiu com a gente</h2>
         <p>Texto ilustrativo — substitua pelos depoimentos reais de clientes da Mont Real.</p>
       </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
-          <p>"O acompanhamento técnico foi o diferencial. Sabíamos exatamente em que etapa a obra estava a cada semana."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">R</div>
-            <div><div class="testimonial-name">Cliente Residencial</div><div class="testimonial-role">Reforma completa</div></div>
-          </div>
+      <div class="testimonial-carousel reveal" id="testimonial-carousel">
+        <div class="testimonial-track" id="testimonial-track">
+          <blockquote class="testimonial-slide">
+            <p>"O acompanhamento técnico foi o diferencial. Sabíamos exatamente em que etapa a obra estava a cada semana."</p>
+            <footer>
+              <span class="testimonial-avatar">R</span>
+              <span><span class="testimonial-name">Cliente Residencial</span><span class="testimonial-role">Reforma completa</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <p>"Contratamos para uma obra pública e a prestação de contas foi impecável do início ao fim."</p>
+            <footer>
+              <span class="testimonial-avatar">S</span>
+              <span><span class="testimonial-name">Gestor Público</span><span class="testimonial-role">Secretaria Municipal</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <p>"Ajudaram com o financiamento e o projeto ao mesmo tempo, o que economizou meses de burocracia."</p>
+            <footer>
+              <span class="testimonial-avatar">M</span>
+              <span><span class="testimonial-name">Proprietário</span><span class="testimonial-role">Casa própria</span></span>
+            </footer>
+          </blockquote>
         </div>
-        <div class="testimonial-card reveal">
-          <p>"Contratamos para uma obra pública e a prestação de contas foi impecável do início ao fim."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">S</div>
-            <div><div class="testimonial-name">Gestor Público</div><div class="testimonial-role">Secretaria Municipal</div></div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal">
-          <p>"Ajudaram com o financiamento e o projeto ao mesmo tempo, o que economizou meses de burocracia."</p>
-          <div class="testimonial-avatar">M</div>
-          <div class="testimonial-author">
-            <div><div class="testimonial-name">Proprietário</div><div class="testimonial-role">Casa própria</div></div>
-          </div>
+        <div class="testimonial-controls">
+          <button class="testimonial-arrow" id="testimonial-prev" aria-label="Depoimento anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <div class="testimonial-dots" id="testimonial-dots"></div>
+          <button class="testimonial-arrow" id="testimonial-next" aria-label="Próximo depoimento">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -311,7 +334,6 @@
   <section id="faq">
     <div class="container">
       <div class="section-header reveal">
-        <span class="label">Perguntas frequentes</span>
         <h2>Antes de começar</h2>
       </div>
       <div class="faq-list">
@@ -341,7 +363,6 @@
   <section class="contact" id="contact">
     <div class="container contact-grid">
       <div class="contact-info reveal">
-        <span class="label">Fale com a gente</span>
         <h2>Vamos tirar seu projeto do papel</h2>
         <p>Preencha o formulário ou fale diretamente pelos canais abaixo.</p>
         <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> (00) 0000-0000</div>

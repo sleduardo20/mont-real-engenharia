@@ -244,6 +244,71 @@
   });
 
   // ------------------------------------------------------------------
+  // Testimonial carousel
+  // ------------------------------------------------------------------
+  var testimonialTrack = document.getElementById('testimonial-track');
+  if (testimonialTrack) {
+    var slides = Array.prototype.slice.call(testimonialTrack.querySelectorAll('.testimonial-slide'));
+    var dotsContainer = document.getElementById('testimonial-dots');
+    var prevButton = document.getElementById('testimonial-prev');
+    var nextButton = document.getElementById('testimonial-next');
+    var activeSlide = 0;
+
+    var dots = slides.map(function (_, index) {
+      var dot = document.createElement('button');
+      dot.className = 'testimonial-dot';
+      dot.setAttribute('aria-label', 'Ir para depoimento ' + (index + 1));
+      dot.addEventListener('click', function () { goToSlide(index); });
+      dotsContainer.appendChild(dot);
+      return dot;
+    });
+
+    function goToSlide(index, direction) {
+      var next = (index + slides.length) % slides.length;
+      slides[activeSlide].classList.remove('active', 'leaving-back');
+      if (direction === -1) slides[next].classList.add('leaving-back');
+      slides[next].classList.add('active');
+      slides[next].classList.remove('leaving-back');
+      dots[activeSlide].classList.remove('active');
+      dots[next].classList.add('active');
+      activeSlide = next;
+    }
+
+    slides[0].classList.add('active');
+    dots[0].classList.add('active');
+
+    prevButton.addEventListener('click', function () { goToSlide(activeSlide - 1, -1); });
+    nextButton.addEventListener('click', function () { goToSlide(activeSlide + 1, 1); });
+
+    testimonialTrack.setAttribute('tabindex', '0');
+    testimonialTrack.addEventListener('keydown', function (event) {
+      if (event.key === 'ArrowLeft') goToSlide(activeSlide - 1, -1);
+      if (event.key === 'ArrowRight') goToSlide(activeSlide + 1, 1);
+    });
+  }
+
+  // ------------------------------------------------------------------
+  // Service rows -> jump to contact form with the service preselected
+  // ------------------------------------------------------------------
+  var serviceSelect = document.getElementById('service');
+  var nameInput = document.getElementById('name');
+  document.querySelectorAll('.service-row').forEach(function (row) {
+    row.addEventListener('click', function () {
+      var serviceName = row.getAttribute('data-service');
+      if (serviceSelect && serviceName) {
+        Array.prototype.forEach.call(serviceSelect.options, function (option) {
+          if (option.value === serviceName || option.textContent === serviceName) {
+            serviceSelect.value = option.value;
+          }
+        });
+      }
+      var contactSection = document.getElementById('contact');
+      if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+      if (nameInput) setTimeout(function () { nameInput.focus(); }, 500);
+    });
+  });
+
+  // ------------------------------------------------------------------
   // Contact form (placeholder — wire up a real backend later)
   // ------------------------------------------------------------------
   var contactForm = document.getElementById('contact-form');
