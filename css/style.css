@@ -579,12 +579,12 @@ section { position: relative; padding: var(--space-7) 0; }
   font-size: var(--size-sm);
   color: var(--metal-100);
 }
-.pf-1 .cover { background-color: #2a3138; background-image: linear-gradient(135deg, #3d4854 0%, #1c2126 100%); }
-.pf-2 .cover { background-color: #2f2a25; background-image: linear-gradient(135deg, #4a3d2f 0%, #1c1a17 100%); }
-.pf-3 .cover { background-color: #23292b; background-image: linear-gradient(135deg, #34474a 0%, #171b1c 100%); }
-.pf-4 .cover { background-color: #2a2622; background-image: linear-gradient(135deg, #4a4237 0%, #1a1815 100%); }
-.pf-5 .cover { background-color: #262b2c; background-image: linear-gradient(135deg, #3a4547 0%, #16191a 100%); }
-.pf-6 .cover { background-color: #2b2723; background-image: linear-gradient(135deg, #4d4034 0%, #19160f 100%); }
+.pf-1 .cover { background-color: #2a3138; background-image: url('../assets/img/portfolio/pf1-alto-padrao.jpg'); }
+.pf-2 .cover { background-color: #2f2a25; background-image: url('../assets/img/portfolio/pf2-cobertura.jpg'); }
+.pf-3 .cover { background-color: #23292b; background-image: url('../assets/img/portfolio/pf3-condominio.jpg'); }
+.pf-4 .cover { background-color: #2a2622; background-image: url('../assets/img/portfolio/pf4-ponte.jpg'); }
+.pf-5 .cover { background-color: #262b2c; background-image: url('../assets/img/portfolio/pf5-medio-padrao.jpg'); }
+.pf-6 .cover { background-color: #2b2723; background-image: url('../assets/img/portfolio/pf6-avaliacao.jpg'); }
 
 /* ---- Testimonials: single featured quote with real navigation ---- */
 .testimonials { background: var(--graphite-900); }
