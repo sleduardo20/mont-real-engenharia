@@ -62,6 +62,10 @@
     video.src = (useMobileVideo && config.mobileSrc) ? config.mobileSrc : config.desktopSrc;
     video.load();
 
+    if (useMobileVideo && config.mobilePoster && config.poster) {
+      config.poster.src = config.mobilePoster;
+    }
+
     video.addEventListener('loadedmetadata', function () {
       scene.duration = video.duration || 0;
     });
@@ -150,6 +154,8 @@
     video: document.getElementById('hero-video'),
     desktopSrc: 'assets/hero.mp4',
     mobileSrc: 'assets/hero-mobile.mp4',
+    poster: document.getElementById('hero-poster'),
+    mobilePoster: 'assets/poster-mobile.jpg',
     onReady: releaseLoading,
     onProgress: function (p) {
       heroProgressFill.style.width = (p * 100) + '%';
