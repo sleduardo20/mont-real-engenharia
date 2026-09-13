@@ -366,7 +366,7 @@ section { position: relative; padding: var(--space-7) 0; }
 .badge { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: var(--size-sm); color: var(--metal-200); }
 .badge svg { width: 18px; height: 18px; color: var(--copper-400); flex-shrink: 0; }
 
-/* ---- About contained scroll scene (journey 6: sketch -> built house) ---- */
+/* ---- About scroll scene (journey 6: sketch -> built house), full-bleed like the hero ---- */
 .about-scene {
   position: relative;
   height: 340vh;
@@ -374,23 +374,15 @@ section { position: relative; padding: var(--space-7) 0; }
 }
 .about-scene-sticky {
   position: sticky;
-  top: 12vh;
-  height: 76vh;
-  height: 76svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 var(--space-3);
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
 }
 .about-scene-frame {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  aspect-ratio: 16/9;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  box-shadow: 0 40px 90px -40px rgba(0,0,0,0.7);
+  height: 100%;
 }
 .about-scene-poster, .about-scene-video {
   position: absolute;
@@ -406,17 +398,17 @@ section { position: relative; padding: var(--space-7) 0; }
   position: absolute;
   left: 0; right: 0; bottom: 0;
   z-index: 3;
-  padding: var(--space-3);
-  background: linear-gradient(to top, rgba(20,23,26,0.85), transparent);
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-5);
+  background: linear-gradient(to top, rgba(20,23,26,0.85) 0%, rgba(20,23,26,0.25) 50%, transparent 100%);
   color: var(--metal-100);
   font-family: var(--font-display);
-  font-size: var(--size-lg);
+  font-size: var(--size-xl);
 }
 
 @media (max-width: 640px) {
   .about-scene { height: 280vh; }
-  .about-scene-sticky { top: 8vh; height: 60vh; height: 60svh; }
-  .about-scene-caption { font-size: var(--size-base); }
+  .about-scene-caption { font-size: var(--size-base); padding-top: var(--space-5); padding-bottom: var(--space-4); }
 }
 
 /* ---- Services: technical index list (not cards) ---- */
