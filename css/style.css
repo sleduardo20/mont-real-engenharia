@@ -172,8 +172,25 @@ button { font-family: inherit; cursor: pointer; }
   border-bottom: 1px solid var(--border);
 }
 .header .container { display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: var(--space-1); }
-.brand img { height: 40px; width: auto; }
+.brand, .brand-mark { display: flex; align-items: center; gap: 0.65rem; }
+.brand-icon { height: 40px; width: auto; }
+.brand-word { display: flex; flex-direction: column; line-height: 1.05; }
+.brand-word-main {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.005em;
+  color: var(--metal-050);
+}
+.brand-word-sub {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--copper-400);
+  margin-top: 3px;
+}
 .nav-desktop { display: flex; align-items: center; gap: var(--space-4); }
 .nav-desktop a {
   font-size: var(--size-sm);
@@ -210,7 +227,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .mobile-menu.open { transform: translateY(0); }
 .mobile-menu-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5); }
-.mobile-menu-top img { height: 36px; }
+.mobile-menu-top .brand-icon { height: 34px; }
 .mobile-menu ul { display: flex; flex-direction: column; gap: var(--space-3); }
 .mobile-menu a { font-family: var(--font-display); font-size: var(--size-xl); }
 
@@ -596,7 +613,9 @@ section { position: relative; padding: var(--space-7) 0; }
 /* ---- Footer ---- */
 .footer { padding: var(--space-5) 0 var(--space-3); border-top: 1px solid var(--border); }
 .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: var(--space-4); margin-bottom: var(--space-4); }
-.footer-brand img { height: 40px; margin-bottom: var(--space-2); }
+.footer-brand .brand-mark { margin-bottom: var(--space-2); }
+.footer-brand .brand-icon { height: 46px; }
+.footer-brand .brand-word-main { font-size: 1.35rem; }
 .footer-brand p { color: var(--text-muted); font-size: var(--size-sm); max-width: 32ch; }
 .footer-column h4 { font-size: var(--size-sm); color: var(--metal-050); margin-bottom: var(--space-2); text-transform: uppercase; letter-spacing: 0.06em; }
 .footer-column ul { display: flex; flex-direction: column; gap: 0.6rem; }
