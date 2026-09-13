@@ -130,10 +130,10 @@
   var heroSubtitle = document.getElementById('hero-subtitle');
 
   var heroMessages = [
-    { threshold: 0, title: 'Toda casa começa num traço', subtitle: 'Role a página e acompanhe uma casa de alto padrão nascer do papel até a chave na mão — é assim que a Mont Real Engenharia conduz cada projeto.' },
-    { threshold: 0.35, title: 'O projeto ganha estrutura', subtitle: 'Cálculo estrutural, engenharia e cronograma físico-financeiro definidos antes do primeiro tijolo.' },
-    { threshold: 0.7, title: 'A obra sai do papel', subtitle: 'Execução acompanhada de perto, com controle de qualidade em cada etapa do canteiro.' },
-    { threshold: 0.92, title: 'Do esboço à chave na mão', subtitle: 'Do traço a lápis à entrega final — o mesmo padrão de rigor técnico, do início ao fim.' }
+    { threshold: 0, title: 'Da estrutura à entrega', subtitle: 'Role a página e acompanhe uma casa de alto padrão ganhar forma, do concreto aparente ao acabamento final — é assim que a Mont Real Engenharia conduz cada projeto.' },
+    { threshold: 0.35, title: 'Engenharia por trás de cada viga', subtitle: 'Cálculo estrutural e execução acompanhados de perto em cada etapa da obra.' },
+    { threshold: 0.7, title: 'O acabamento toma forma', subtitle: 'Revestimento, esquadrias e paisagismo finalizando o projeto com precisão técnica.' },
+    { threshold: 0.92, title: 'Da fundação à chave na mão', subtitle: 'Do concreto aparente ao acabamento de alto padrão — o mesmo rigor técnico do início ao fim.' }
   ];
   var currentHeroMessage = heroMessages[0];
 
@@ -169,7 +169,7 @@
     bindScrollVideo({
       section: aboutScene,
       video: document.getElementById('about-scene-video'),
-      desktopSrc: 'assets/hero.mp4'
+      desktopSrc: 'assets/about-scene.mp4'
     });
   }
 
