@@ -67,8 +67,6 @@
 *, *::before, *::after { box-sizing: border-box; }
 html {
   scroll-behavior: smooth;
-  overscroll-behavior-x: none;
-  touch-action: pan-y pinch-zoom;
 }
 body {
   margin: 0;
@@ -79,8 +77,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  overscroll-behavior-x: none;
-  touch-action: pan-y pinch-zoom;
   position: relative;
 }
 body::before {
