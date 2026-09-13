@@ -330,27 +330,64 @@ section { position: relative; padding: var(--space-7) 0; }
 
 /* ---- About ---- */
 .about { background: var(--graphite-900); }
-.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-6); align-items: center; }
+.about-text { max-width: 720px; }
 .about-text p { color: var(--text-muted); margin-bottom: var(--space-2); font-size: var(--size-base); }
 .about-badges { display: flex; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap; }
 .badge { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: var(--size-sm); color: var(--metal-200); }
 .badge svg { width: 18px; height: 18px; color: var(--copper-400); flex-shrink: 0; }
 
-.about-visual {
+/* ---- About contained scroll scene (journey 6: sketch -> built house) ---- */
+.about-scene {
   position: relative;
-  aspect-ratio: 4/5;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background:
-    repeating-linear-gradient(0deg, rgba(74,127,166,0.12) 0 1px, transparent 1px 24px),
-    repeating-linear-gradient(90deg, rgba(74,127,166,0.12) 0 1px, transparent 1px 24px),
-    linear-gradient(160deg, #1c2b36, #14171a 70%);
-  border: 1px solid var(--border);
+  height: 340vh;
+  margin-top: var(--space-7);
+}
+.about-scene-sticky {
+  position: sticky;
+  top: 12vh;
+  height: 76vh;
+  height: 76svh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 var(--space-3);
 }
-.about-visual svg { width: 55%; height: auto; opacity: 0.9; }
+.about-scene-frame {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 40px 90px -40px rgba(0,0,0,0.7);
+}
+.about-scene-poster, .about-scene-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-scene-poster { z-index: 1; }
+.about-scene-video { z-index: 2; opacity: 0; transition: opacity 0.4s ease; }
+.about-scene-video.ready { opacity: 1; }
+.about-scene-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  padding: var(--space-3);
+  background: linear-gradient(to top, rgba(20,23,26,0.85), transparent);
+  color: var(--metal-100);
+  font-family: var(--font-display);
+  font-size: var(--size-lg);
+}
+
+@media (max-width: 640px) {
+  .about-scene { height: 280vh; }
+  .about-scene-sticky { top: 8vh; height: 60vh; height: 60svh; }
+  .about-scene-caption { font-size: var(--size-base); }
+}
 
 /* ---- Services ---- */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
@@ -587,8 +624,7 @@ section { position: relative; padding: var(--space-7) 0; }
   .process-list { grid-template-columns: repeat(2, 1fr); }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonials-grid { grid-template-columns: 1fr; }
-  .about-grid, .popular-grid, .contact-grid { grid-template-columns: 1fr; }
-  .about-grid { gap: var(--space-4); }
+  .popular-grid, .contact-grid { grid-template-columns: 1fr; }
   .popular-grid { gap: var(--space-4); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }

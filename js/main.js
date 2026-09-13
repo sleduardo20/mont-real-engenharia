@@ -44,119 +44,135 @@
   });
 
   // ------------------------------------------------------------------
-  // HERO — scroll-bound video
+  // Scroll-bound video scenes (generic binder — hero + contained scenes)
   // ------------------------------------------------------------------
-  var heroSection = document.getElementById('hero');
-  var heroVideo = document.getElementById('hero-video');
-  var heroPoster = document.getElementById('hero-poster');
-  var heroProgressFill = document.getElementById('hero-progress-fill');
-  var heroCounter = document.getElementById('hero-counter');
-  var heroTitle = document.getElementById('hero-title');
-  var heroSubtitle = document.getElementById('hero-subtitle');
+  var useMobileVideo = window.matchMedia('(max-width: 820px) and (orientation: portrait)').matches;
+  var boundScenes = [];
 
-  var useMobile = window.matchMedia('(max-width: 820px) and (orientation: portrait)').matches;
-  var videoSource = useMobile ? 'assets/hero-mobile.mp4' : 'assets/hero.mp4';
+  function bindScrollVideo(config) {
+    var section = config.section;
+    var video = config.video;
+    var scene = {
+      video: video,
+      duration: 0,
+      ready: false,
+      onProgress: config.onProgress || null
+    };
 
-  var videoDuration = 0;
-  var videoReady = false;
-  var iosUnlocked = false;
+    video.src = (useMobileVideo && config.mobileSrc) ? config.mobileSrc : config.desktopSrc;
+    video.load();
 
-  var messages = [
-    { threshold: 0, title: 'Toda casa começa num traço', subtitle: 'Role a página e acompanhe uma casa de alto padrão nascer do papel até a chave na mão — é assim que a Mont Real Engenharia conduz cada projeto.' },
-    { threshold: 0.35, title: 'O projeto ganha estrutura', subtitle: 'Cálculo estrutural, engenharia e cronograma físico-financeiro definidos antes do primeiro tijolo.' },
-    { threshold: 0.7, title: 'A obra sai do papel', subtitle: 'Execução acompanhada de perto, com controle de qualidade em cada etapa do canteiro.' },
-    { threshold: 0.92, title: 'Do esboço à chave na mão', subtitle: 'Do traço a lápis à entrega final — o mesmo padrão de rigor técnico, do início ao fim.' }
-  ];
+    video.addEventListener('loadedmetadata', function () {
+      scene.duration = video.duration || 0;
+    });
+    video.addEventListener('canplaythrough', function () {
+      scene.ready = true;
+      video.classList.add('ready');
+      if (config.onReady) config.onReady();
+    });
+    video.addEventListener('error', function () {
+      // File not available yet: keep the poster and don't block the site.
+      if (config.onReady) config.onReady();
+    });
 
-  function tryLoadVideo() {
-    heroVideo.src = videoSource;
-    heroVideo.load();
+    scene.progress = function () {
+      var rect = section.getBoundingClientRect();
+      var totalHeight = section.offsetHeight - window.innerHeight;
+      if (totalHeight <= 0) return 0;
+      return Math.min(1, Math.max(0, -rect.top / totalHeight));
+    };
+
+    scene.apply = function () {
+      var p = scene.progress();
+      if (scene.ready && scene.duration > 0 && video.readyState >= 2) {
+        video.currentTime = p * scene.duration;
+      }
+      if (scene.onProgress) scene.onProgress(p);
+    };
+
+    boundScenes.push(scene);
+    return scene;
   }
 
-  heroVideo.addEventListener('loadedmetadata', function () {
-    videoDuration = heroVideo.duration || 0;
-  });
-
-  heroVideo.addEventListener('canplaythrough', function () {
-    videoReady = true;
-    heroVideo.classList.add('ready');
-    releaseLoading();
-  });
-
-  heroVideo.addEventListener('error', function () {
-    // File not available yet: keep the poster and don't block the site.
-    releaseLoading();
-  });
-
-  tryLoadVideo();
-
   function unlockIOS() {
-    if (iosUnlocked) return;
-    iosUnlocked = true;
-    var playPromise = heroVideo.play();
-    if (playPromise && playPromise.then) {
-      playPromise.then(function () { heroVideo.pause(); }).catch(function () {});
-    }
+    boundScenes.forEach(function (scene) {
+      var playPromise = scene.video.play();
+      if (playPromise && playPromise.then) {
+        playPromise.then(function () { scene.video.pause(); }).catch(function () {});
+      }
+    });
   }
   window.addEventListener('touchstart', unlockIOS, { once: true, passive: true });
   window.addEventListener('scroll', unlockIOS, { once: true, passive: true });
-
-  function messageForProgress(p) {
-    var chosen = messages[0];
-    for (var i = 0; i < messages.length; i++) {
-      if (p >= messages[i].threshold) chosen = messages[i];
-    }
-    return chosen;
-  }
-
-  var currentMessage = messages[0];
-
-  function applyHeroProgress(p) {
-    p = Math.min(1, Math.max(0, p));
-
-    heroProgressFill.style.width = (p * 100) + '%';
-    heroCounter.textContent = Math.round(p * 100) + '%';
-
-    var msg = messageForProgress(p);
-    if (msg !== currentMessage) {
-      currentMessage = msg;
-      heroTitle.textContent = msg.title;
-      heroSubtitle.textContent = msg.subtitle;
-    }
-
-    if (videoReady && videoDuration > 0) {
-      var readyState = heroVideo.readyState;
-      if (readyState >= 2) {
-        heroVideo.currentTime = p * videoDuration;
-      }
-    }
-  }
-
-  function heroProgress() {
-    var rect = heroSection.getBoundingClientRect();
-    var totalHeight = heroSection.offsetHeight - window.innerHeight;
-    if (totalHeight <= 0) return 0;
-    var scrolledAmount = -rect.top;
-    return scrolledAmount / totalHeight;
-  }
 
   var tickScheduled = false;
   function scheduleTick() {
     if (tickScheduled) return;
     tickScheduled = true;
     if (document.hidden) {
-      applyHeroProgress(heroProgress());
+      boundScenes.forEach(function (scene) { scene.apply(); });
       tickScheduled = false;
       return;
     }
     requestAnimationFrame(function () {
-      applyHeroProgress(heroProgress());
+      boundScenes.forEach(function (scene) { scene.apply(); });
       tickScheduled = false;
     });
   }
 
   window.addEventListener('scroll', scheduleTick, { passive: true });
   window.addEventListener('resize', scheduleTick);
+
+  // ---- Hero scene ----
+  var heroProgressFill = document.getElementById('hero-progress-fill');
+  var heroCounter = document.getElementById('hero-counter');
+  var heroTitle = document.getElementById('hero-title');
+  var heroSubtitle = document.getElementById('hero-subtitle');
+
+  var heroMessages = [
+    { threshold: 0, title: 'Toda casa começa num traço', subtitle: 'Role a página e acompanhe uma casa de alto padrão nascer do papel até a chave na mão — é assim que a Mont Real Engenharia conduz cada projeto.' },
+    { threshold: 0.35, title: 'O projeto ganha estrutura', subtitle: 'Cálculo estrutural, engenharia e cronograma físico-financeiro definidos antes do primeiro tijolo.' },
+    { threshold: 0.7, title: 'A obra sai do papel', subtitle: 'Execução acompanhada de perto, com controle de qualidade em cada etapa do canteiro.' },
+    { threshold: 0.92, title: 'Do esboço à chave na mão', subtitle: 'Do traço a lápis à entrega final — o mesmo padrão de rigor técnico, do início ao fim.' }
+  ];
+  var currentHeroMessage = heroMessages[0];
+
+  function heroMessageForProgress(p) {
+    var chosen = heroMessages[0];
+    for (var i = 0; i < heroMessages.length; i++) {
+      if (p >= heroMessages[i].threshold) chosen = heroMessages[i];
+    }
+    return chosen;
+  }
+
+  bindScrollVideo({
+    section: document.getElementById('hero'),
+    video: document.getElementById('hero-video'),
+    desktopSrc: 'assets/hero.mp4',
+    mobileSrc: 'assets/hero-mobile.mp4',
+    onReady: releaseLoading,
+    onProgress: function (p) {
+      heroProgressFill.style.width = (p * 100) + '%';
+      heroCounter.textContent = Math.round(p * 100) + '%';
+      var msg = heroMessageForProgress(p);
+      if (msg !== currentHeroMessage) {
+        currentHeroMessage = msg;
+        heroTitle.textContent = msg.title;
+        heroSubtitle.textContent = msg.subtitle;
+      }
+    }
+  });
+
+  // ---- About contained scene (sketch -> built house) ----
+  var aboutScene = document.getElementById('about-scene');
+  if (aboutScene) {
+    bindScrollVideo({
+      section: aboutScene,
+      video: document.getElementById('about-scene-video'),
+      desktopSrc: 'assets/hero.mp4'
+    });
+  }
+
   scheduleTick();
 
   // ------------------------------------------------------------------
