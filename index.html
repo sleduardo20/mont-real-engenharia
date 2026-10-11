@@ -1,393 +1,618 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mont Real Engenharia — Projetos, Construção e Reformas de Alto Padrão</title>
-<meta name="description" content="Mont Real Engenharia: projetos de engenharia, financiamento imobiliário, reforma e construções, execução de obras públicas, licitações e avaliação de imóveis.">
+<title>Mont Real Engenharia — Projeto, construção e avaliação de imóveis em Araguaína - TO</title>
+<meta name="description" content="Mont Real Engenharia: projetos de engenharia, financiamento imobiliário, reformas e construções, obras públicas, licitações e avaliação de imóveis. Do primeiro traço à chave na mão.">
+<meta name="theme-color" content="#0d0d0c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mont Real Engenharia — Projetamos. Construímos. Entregamos.">
+<meta property="og:description" content="Projeto, obra e avaliação de imóveis conduzidos pela mesma equipe de engenharia, do estudo de viabilidade à entrega das chaves.">
+<meta property="og:image" content="assets/img/hero-final.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,200..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/poster.jpg">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div id="loading-screen">
-  <div class="loading-content">
-    <img src="assets/img/logo-icon.png" alt="" class="loading-logo">
-    <div class="loading-bar"></div>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- LOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <img src="assets/img/logo-icon-sm.png" alt="" class="loader-logo">
+    <div class="loader-word">
+      <span>Mont Real</span>
+      <span class="loader-sub">Engenharia</span>
+    </div>
+    <div class="loader-meter">
+      <span class="loader-count" id="loader-count">000</span>
+      <span class="loader-track"><span class="loader-fill" id="loader-fill"></span></span>
+    </div>
   </div>
 </div>
 
+<div class="grain" aria-hidden="true"></div>
+
+<!-- HEADER — floating island -->
 <header class="header" id="header">
-  <div class="container">
-    <a href="#top" class="brand">
-      <img src="assets/img/logo-icon.png" alt="" class="brand-icon">
+  <div class="header-island">
+    <a href="#top" class="brand" aria-label="Mont Real Engenharia — início">
+      <img src="assets/img/logo-icon-sm.png" alt="" class="brand-icon" width="40" height="40">
       <span class="brand-word"><span class="brand-word-main">Mont Real</span><span class="brand-word-sub">Engenharia</span></span>
     </a>
-    <nav class="nav-desktop">
+    <nav class="nav-desktop" aria-label="Navegação principal">
       <a href="#about">Sobre</a>
       <a href="#services">Serviços</a>
-      <a href="#popular-homes">Casas Populares</a>
       <a href="#process">Processo</a>
-      <a href="#portfolio">Portfólio</a>
-      <a href="#contact">Contato</a>
+      <a href="#portfolio">Obras</a>
+      <a href="#faq">Dúvidas</a>
     </nav>
-    <div class="nav-cta">
-      <a href="#contact" class="button button-secondary">Fale conosco</a>
-      <button class="menu-button" id="menu-button" aria-label="Abrir menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <a href="#contact" class="pill pill-light pill-sm nav-cta">
+      <span>Orçamento</span>
+      <span class="pill-icon"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+    </a>
+    <button class="menu-button" id="menu-button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span>
+    </button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobile-menu">
-  <div class="mobile-menu-top">
-    <span class="brand-mark">
-      <img src="assets/img/logo-icon.png" alt="" class="brand-icon">
-      <span class="brand-word"><span class="brand-word-main">Mont Real</span><span class="brand-word-sub">Engenharia</span></span>
-    </span>
-    <button class="menu-button" id="close-menu-button" aria-label="Fechar menu">
-      <span style="transform: rotate(45deg) translateY(1px);"></span>
-      <span style="transform: rotate(-45deg) translateY(-6px);"></span>
-    </button>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav aria-label="Menu móvel">
+    <ul>
+      <li><a href="#about"><span class="mono">01</span>Sobre</a></li>
+      <li><a href="#services"><span class="mono">02</span>Serviços</a></li>
+      <li><a href="#popular-homes"><span class="mono">03</span>Casas populares</a></li>
+      <li><a href="#process"><span class="mono">04</span>Processo</a></li>
+      <li><a href="#portfolio"><span class="mono">05</span>Obras</a></li>
+      <li><a href="#contact"><span class="mono">06</span>Contato</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu-foot">
+    <span class="mono">Araguaína — TO</span>
+    <a href="mailto:contato@montrealengenharia.com.br">contato@montrealengenharia.com.br</a>
   </div>
-  <ul>
-    <li><a href="#about">Sobre</a></li>
-    <li><a href="#services">Serviços</a></li>
-    <li><a href="#popular-homes">Casas Populares</a></li>
-    <li><a href="#process">Processo</a></li>
-    <li><a href="#portfolio">Portfólio</a></li>
-    <li><a href="#contact">Contato</a></li>
-  </ul>
 </div>
 
-<main id="top">
+<main id="main">
+<div id="top"></div>
 
-  <!-- HERO — scroll-bound scene -->
-  <section class="hero" id="hero">
+  <!-- ================================================================
+       01 — HERO: scroll-bound construction scene
+       ================================================================ -->
+  <section class="hero" id="hero" aria-label="Apresentação">
     <div class="hero-sticky">
-      <img src="assets/poster.jpg" alt="Casa de alto padrão em construção" class="hero-poster" id="hero-poster">
-      <video class="hero-video" id="hero-video" muted playsinline preload="auto"></video>
-      <div class="hero-overlay"></div>
+      <img src="assets/poster.jpg" alt="Casa de alto padrão em estrutura de concreto, no início da obra" class="hero-poster" id="hero-poster">
+      <video class="hero-video" id="hero-video" muted playsinline preload="auto" aria-hidden="true"></video>
+      <div class="hero-shade"></div>
+
+      <div class="crop crop-tl" aria-hidden="true"></div>
+      <div class="crop crop-tr" aria-hidden="true"></div>
+      <div class="crop crop-bl" aria-hidden="true"></div>
+      <div class="crop crop-br" aria-hidden="true"></div>
+
+      <div class="hero-meta mono" aria-hidden="true">
+        <span>07°11′S&nbsp;&nbsp;48°12′W</span>
+        <span>Araguaína — Tocantins</span>
+      </div>
 
       <div class="hero-content">
-        <div class="container">
-          <div class="hero-top-row">
-            <div>
-              <span class="label">Do projeto à obra entregue</span>
-              <h1 class="hero-title" id="hero-title">Da estrutura à entrega</h1>
-            </div>
-            <div class="hero-detail">
-              <span class="num" id="hero-counter">00%</span>
-              <span class="label-mini">da estrutura<br>à entrega</span>
+        <div class="hero-intro" id="hero-intro">
+          <span class="eyebrow eyebrow-light">Engenharia · Projeto · Obra</span>
+          <h1 class="hero-title">
+            <span class="line"><span>Projetamos.</span></span>
+            <span class="line"><span>Construímos.</span></span>
+            <span class="line"><span class="accent-serif">Entregamos.</span></span>
+          </h1>
+          <div class="hero-actions">
+            <p class="hero-lede">Do estudo de viabilidade à entrega das chaves, uma única equipe de engenharia responde por cada etapa da sua obra.</p>
+            <div class="hero-buttons">
+              <a href="#contact" class="pill pill-accent magnetic">
+                <span>Solicitar orçamento</span>
+                <span class="pill-icon"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+              </a>
+              <a href="#portfolio" class="text-link">Ver obras</a>
             </div>
           </div>
-          <p class="hero-subtitle" id="hero-subtitle">Role a página e acompanhe uma casa de alto padrão ganhar forma, do concreto aparente ao acabamento final — é assim que a Mont Real Engenharia conduz cada projeto.</p>
-          <div class="hero-progress-bar"><div class="fill" id="hero-progress-fill"></div></div>
         </div>
+
+        <aside class="hero-hud" aria-label="Etapa da obra">
+          <div class="hud-row mono">
+            <span>Etapa <b id="hud-step">01</b>/04</span>
+            <span id="hud-percent">000%</span>
+          </div>
+          <div class="hud-stage" id="hud-stage">Estrutura de concreto</div>
+          <div class="hud-track"><span class="hud-fill" id="hud-fill"></span></div>
+          <ol class="hud-steps mono" aria-hidden="true">
+            <li class="is-active">Estrutura</li>
+            <li>Vedação</li>
+            <li>Acabamento</li>
+            <li>Entrega</li>
+          </ol>
+        </aside>
       </div>
 
-      <div class="hero-scroll-hint">
-        role para construir
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+      <p class="hero-outro" id="hero-outro" aria-hidden="true">Da fundação à <em>chave na mão</em>.</p>
+
+      <div class="scroll-cue mono" aria-hidden="true">
+        <span>Role para construir</span>
+        <span class="scroll-cue-line"></span>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
+  <!-- ================================================================
+       02 — MANIFESTO + PRINCIPLES (night chapter)
+       ================================================================ -->
+  <section class="manifesto chapter-night" id="about">
     <div class="container">
-      <div class="about-text reveal">
-        <h2 style="font-size: var(--size-3xl); color: var(--metal-050); margin-bottom: var(--space-3);">Engenharia com a precisão de um projeto e a sensibilidade de quem entrega um lar</h2>
-        <p>A Mont Real Engenharia nasceu para unir dois mundos que raramente andam juntos: o rigor técnico de uma engenharia que responde por licitações e obras públicas, e o cuidado artesanal exigido por uma casa de alto padrão.</p>
-        <p>Do primeiro estudo de viabilidade ao último acabamento, cada etapa é conduzida pela mesma equipe — projeto, engenharia, execução e avaliação —, o que elimina retrabalho, atrasos e surpresas no orçamento.</p>
-        <div class="about-badges">
-          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Habilitada para licitações públicas</div>
-          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg> Equipe própria de engenharia</div>
-          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg> Avaliação técnica de imóveis</div>
+      <div class="manifesto-head">
+        <span class="eyebrow">Sobre a Mont Real</span>
+        <span class="mono manifesto-index">(01)</span>
+      </div>
+      <p class="manifesto-text" id="manifesto-text">Unimos o rigor de uma engenharia habilitada para obras públicas ao cuidado que uma casa de alto padrão exige. Projeto, cálculo, execução e avaliação ficam com a mesma equipe, então não há retrabalho, atraso ou surpresa no orçamento.</p>
+
+      <div class="principles">
+        <h2 class="principles-title">Princípios que sustentam <em>cada obra</em></h2>
+        <div class="principles-grid">
+          <article class="principle reveal">
+            <span class="mono principle-num">01</span>
+            <h3>Rigor técnico em cada viga</h3>
+            <p>Cálculo estrutural, compatibilização de projetos e controle de qualidade em canteiro. A obra segue o projeto, e o projeto segue a norma.</p>
+          </article>
+          <article class="principle reveal">
+            <span class="mono principle-num">02</span>
+            <h3>Uma equipe, do traço à chave</h3>
+            <p>Quem projeta acompanha a execução. Você fala com os mesmos engenheiros do primeiro estudo à vistoria final.</p>
+          </article>
+          <article class="principle reveal">
+            <span class="mono principle-num">03</span>
+            <h3>Transparência no cronograma</h3>
+            <p>Cronograma físico-financeiro, relatórios periódicos e prestação de contas no padrão exigido por órgãos públicos.</p>
+          </article>
         </div>
       </div>
+
+      <ul class="credentials reveal" aria-label="Credenciais">
+        <li><span class="mono">✓</span> Habilitada para licitações públicas</li>
+        <li><span class="mono">✓</span> Equipe própria de engenharia</li>
+        <li><span class="mono">✓</span> Laudos conforme normas ABNT</li>
+      </ul>
     </div>
 
+    <!-- Sketch → built house, scroll-bound -->
     <div class="about-scene" id="about-scene">
       <div class="about-scene-sticky">
-        <div class="about-scene-frame">
-          <img src="assets/poster-about.jpg" alt="Projeto de casa se transformando em obra construída" class="about-scene-poster" id="about-scene-poster">
-          <video class="about-scene-video" id="about-scene-video" muted playsinline preload="auto"></video>
-          <div class="about-scene-caption"><div class="container">Do esboço ao acabamento — o mesmo rigor em cada projeto</div></div>
+        <img src="assets/poster-about.jpg" alt="Desenho a lápis de uma casa se transformando na casa construída" class="about-scene-poster" id="about-scene-poster">
+        <video class="about-scene-video" id="about-scene-video" muted playsinline preload="auto" aria-hidden="true"></video>
+        <div class="about-scene-shade"></div>
+        <div class="about-scene-ui">
+          <div class="container">
+            <ol class="scene-steps mono" id="scene-steps" aria-hidden="true">
+              <li class="is-active">01 Esboço</li>
+              <li>02 Projeto</li>
+              <li>03 Obra</li>
+            </ol>
+            <p class="scene-caption">Do esboço ao acabamento, <em>o mesmo rigor</em>.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <!-- ================================================================
+       03 — SERVICES (paper chapter)
+       ================================================================ -->
+  <section class="services chapter-paper" id="services">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>Seis frentes, uma única responsabilidade</h2>
-        <p>Do papel ao registro em cartório, cuidamos de cada etapa que envolve construir, reformar ou avaliar um imóvel. Clique numa frente para falar diretamente sobre ela.</p>
-      </div>
-      <div class="services-list">
+      <header class="section-head">
+        <div>
+          <span class="eyebrow eyebrow-dark">Serviços</span>
+          <h2 class="display">Seis frentes,<br><em>uma só responsabilidade</em></h2>
+        </div>
+        <p class="section-aside">Do papel ao registro em cartório, cuidamos de cada etapa que envolve construir, reformar ou avaliar um imóvel. Escolha uma frente para falar direto sobre ela.</p>
+      </header>
 
-        <button class="service-row reveal" data-service="Projetos de Engenharia">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg></span>
-          <span class="service-copy">
-            <span class="service-title">Projetos de Engenharia</span>
-            <span class="service-desc">Estudos, projetos arquitetônicos, estruturais e complementares desenvolvidos por equipe técnica própria, do zero à aprovação.</span>
-          </span>
-          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+      <div class="services-list" id="services-list">
+        <button class="service-row reveal" data-service="Projetos de Engenharia" data-image="assets/img/portfolio/pf1-alto-padrao.jpg">
+          <span class="mono service-num">01</span>
+          <span class="service-title">Projetos de engenharia</span>
+          <span class="service-desc">Estudos, projetos arquitetônicos, estruturais e complementares feitos por equipe própria, do zero à aprovação.</span>
+          <span class="service-go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </button>
-
-        <button class="service-row reveal" data-service="Financiamento Imobiliário">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
-          <span class="service-copy">
-            <span class="service-title">Financiamento Imobiliário</span>
-            <span class="service-desc">Estruturação e acompanhamento de crédito para construção e aquisição, com simulação e suporte em toda a documentação.</span>
-          </span>
-          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        <button class="service-row reveal" data-service="Financiamento Imobiliário" data-image="assets/img/portfolio/pf5-medio-padrao.jpg">
+          <span class="mono service-num">02</span>
+          <span class="service-title">Financiamento imobiliário</span>
+          <span class="service-desc">Estruturação e acompanhamento de crédito para construção e aquisição, com simulação e suporte em toda a documentação.</span>
+          <span class="service-go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </button>
-
-        <button class="service-row reveal" data-service="Reforma e Construções">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2v6h6M6 22h12a2 2 0 002-2V8l-6-6H6a2 2 0 00-2 2v16a2 2 0 002 2zM10 13h4M10 17h4"/></svg></span>
-          <span class="service-copy">
-            <span class="service-title">Reforma e Construções</span>
-            <span class="service-desc">Reformas completas e construções sob medida, com cronograma físico-financeiro claro do primeiro ao último dia de obra.</span>
-          </span>
-          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        <button class="service-row reveal" data-service="Reforma e Construções" data-image="assets/img/portfolio/pf2-cobertura.jpg">
+          <span class="mono service-num">03</span>
+          <span class="service-title">Reformas e construções</span>
+          <span class="service-desc">Reformas completas e construções sob medida, com cronograma físico-financeiro claro do primeiro ao último dia.</span>
+          <span class="service-go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </button>
-
-        <button class="service-row reveal" data-service="Execução de Obras Públicas">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l5-3 5 3v10M14 20V6l6-2v16"/></svg></span>
-          <span class="service-copy">
-            <span class="service-title">Execução de Obras Públicas</span>
-            <span class="service-desc">Gestão e execução de obras contratadas junto a órgãos públicos, com controle de qualidade e prestação de contas rigorosa.</span>
-          </span>
-          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        <button class="service-row reveal" data-service="Execução de Obras Públicas" data-image="assets/img/portfolio/pf4-ponte.jpg">
+          <span class="mono service-num">04</span>
+          <span class="service-title">Obras públicas</span>
+          <span class="service-desc">Gestão e execução de obras contratadas por órgãos públicos, com controle de qualidade e prestação de contas rigorosa.</span>
+          <span class="service-go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </button>
-
-        <button class="service-row reveal" data-service="Licitações">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
-          <span class="service-copy">
-            <span class="service-title">Especialista em Licitações</span>
-            <span class="service-desc">Elaboração de propostas técnicas e preparo documental para participação em processos licitatórios com segurança jurídica.</span>
-          </span>
-          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        <button class="service-row reveal" data-service="Licitações" data-image="assets/img/portfolio/pf3-condominio.jpg">
+          <span class="mono service-num">05</span>
+          <span class="service-title">Licitações</span>
+          <span class="service-desc">Propostas técnicas e preparo documental para participar de processos licitatórios com segurança jurídica.</span>
+          <span class="service-go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </button>
-
-        <button class="service-row reveal" data-service="Avaliação de Imóveis">
-          <span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.35-4.35"/></svg></span>
-          <span class="service-copy">
-            <span class="service-title">Avaliação de Imóveis</span>
-            <span class="service-desc">Laudos técnicos de avaliação para compra, venda, garantia bancária ou processos judiciais, seguindo normas da ABNT.</span>
-          </span>
-          <svg class="service-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        <button class="service-row reveal" data-service="Avaliação de Imóveis" data-image="assets/img/portfolio/pf6-avaliacao.jpg">
+          <span class="mono service-num">06</span>
+          <span class="service-title">Avaliação de imóveis</span>
+          <span class="service-desc">Laudos técnicos para compra, venda, garantia bancária ou processos judiciais, seguindo as normas da ABNT.</span>
+          <span class="service-go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
         </button>
-
       </div>
     </div>
+    <div class="service-preview" id="service-preview" aria-hidden="true"><img src="" alt=""></div>
   </section>
 
-  <!-- POPULAR HOMES — secondary CSS/SVG animation, full-bleed like the hero -->
-  <section class="popular-homes" id="popular-homes">
-    <div class="popular-scene reveal">
-      <svg viewBox="0 0 240 220">
-        <path class="draw-line" d="M30 140 L120 60 L210 140"/>
-        <polygon class="house-piece foundation" points="45,180 195,180 195,190 45,190" fill="#343a40"/>
-        <rect class="house-piece wall-left" x="45" y="120" width="70" height="60" fill="#454c53"/>
-        <rect class="house-piece wall-right" x="125" y="120" width="70" height="60" fill="#3d444b"/>
-        <polygon class="house-piece roof" points="30,120 120,50 210,120 190,120 120,68 50,120" fill="#c17a3f"/>
-        <rect class="house-piece door" x="110" y="150" width="24" height="30" fill="#1b1f23"/>
-        <rect class="house-piece window-1" x="60" y="135" width="18" height="18" fill="#4a7fa6"/>
-        <rect class="house-piece window-2" x="160" y="135" width="18" height="18" fill="#4a7fa6"/>
-        <rect class="house-piece chimney" x="165" y="75" width="14" height="30" fill="#454c53"/>
-        <path class="house-piece garden" d="M20 190 q20 -18 40 0 M170 190 q20 -18 40 0" stroke="#5c8a5c" stroke-width="3" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div class="container">
-      <div class="popular-text reveal">
-        <h2 style="font-size: var(--size-3xl); color: var(--metal-050); margin-bottom: var(--space-2);">Alto padrão técnico também nas casas mais populares</h2>
-        <p>Nem todo projeto precisa de mármore para exigir engenharia séria. Aplicamos o mesmo rigor de cálculo estrutural, prazo e financiamento em residências de médio padrão e programas habitacionais.</p>
-        <ul class="popular-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Projetos otimizados para custo-benefício, sem abrir mão da segurança</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Apoio na estruturação de financiamento habitacional</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Cronograma de obra compatível com o orçamento familiar</li>
+  <!-- ================================================================
+       04 — POPULAR HOMES: self-drawing floor plan
+       ================================================================ -->
+  <section class="popular chapter-paper-continue" id="popular-homes">
+    <div class="container popular-grid">
+      <div class="popular-copy">
+        <span class="eyebrow eyebrow-dark">Casas populares</span>
+        <h2 class="display">Alto padrão técnico <em>em qualquer metragem</em></h2>
+        <p>Nem todo projeto precisa de mármore para exigir engenharia séria. Aplicamos o mesmo cálculo estrutural, o mesmo controle de prazo e o mesmo apoio no financiamento em residências de médio padrão e programas habitacionais.</p>
+        <ul class="spec-list">
+          <li><span class="mono">A</span>Projeto otimizado para custo-benefício, sem abrir mão da segurança</li>
+          <li><span class="mono">B</span>Apoio na estruturação do financiamento habitacional</li>
+          <li><span class="mono">C</span>Cronograma de obra compatível com o orçamento da família</li>
         </ul>
       </div>
+
+      <figure class="plan" id="plan">
+        <figcaption class="plan-head mono">
+          <span>Planta baixa — Residência térrea</span>
+          <span>Esc. 1:100</span>
+        </figcaption>
+        <svg class="plan-svg" viewBox="0 0 520 460" role="img" aria-label="Planta baixa de uma casa com sala e cozinha integradas, dois quartos, banheiro, área de serviço e varanda">
+          <!-- dimension lines -->
+          <g class="plan-dim">
+            <path pathLength="1" d="M60 30 H460"/>
+            <path pathLength="1" d="M60 22 V38 M460 22 V38"/>
+            <path pathLength="1" d="M490 70 V410"/>
+            <path pathLength="1" d="M482 70 H498 M482 410 H498"/>
+          </g>
+          <!-- outer walls -->
+          <g class="plan-wall">
+            <path pathLength="1" d="M60 70 H460 V410 H60 Z"/>
+          </g>
+          <!-- inner walls -->
+          <g class="plan-inner">
+            <path pathLength="1" d="M260 70 V200"/>
+            <path pathLength="1" d="M60 200 H210 M250 200 H340"/>
+            <path pathLength="1" d="M340 200 V410"/>
+            <path pathLength="1" d="M340 300 H460"/>
+            <path pathLength="1" d="M380 200 H460"/>
+            <path pathLength="1" d="M60 330 H120"/>
+          </g>
+          <!-- doors -->
+          <g class="plan-door">
+            <path pathLength="1" d="M210 200 A40 40 0 0 1 250 240"/>
+            <path pathLength="1" d="M340 340 A36 36 0 0 0 376 376"/>
+            <path pathLength="1" d="M340 200 A40 40 0 0 1 380 240"/>
+            <path pathLength="1" d="M286 410 A44 44 0 0 1 330 366"/>
+          </g>
+          <!-- windows -->
+          <g class="plan-window">
+            <path pathLength="1" d="M110 66 H200 M110 74 H200"/>
+            <path pathLength="1" d="M310 66 H410 M310 74 H410"/>
+            <path pathLength="1" d="M56 250 V300 M64 250 V300"/>
+            <path pathLength="1" d="M456 230 V280 M464 230 V280"/>
+            <path pathLength="1" d="M390 406 H440 M390 414 H440"/>
+          </g>
+          <!-- furniture hints -->
+          <g class="plan-furn">
+            <rect pathLength="1" x="90" y="100" width="70" height="80" rx="3"/>
+            <rect pathLength="1" x="300" y="100" width="60" height="70" rx="3"/>
+            <rect pathLength="1" x="140" y="352" width="110" height="32" rx="6"/>
+            <path pathLength="1" d="M360 230 H440 M360 230 V262 M440 230 V262"/>
+            <circle pathLength="1" cx="438" cy="388" r="11"/>
+          </g>
+          <!-- labels -->
+          <g class="plan-label">
+            <text x="212" y="134">QUARTO 01</text><text x="212" y="150" class="area">9,80 m²</text>
+            <text x="410" y="134">QUARTO 02</text><text x="410" y="150" class="area">10,40 m²</text>
+            <text x="200" y="280">SALA / COZINHA</text><text x="200" y="296" class="area">24,60 m²</text>
+            <text x="400" y="286">SERVIÇO</text>
+            <text x="392" y="330">BANHO</text><text x="392" y="346" class="area">3,60 m²</text>
+            <text x="90" y="380">VARANDA</text>
+            <text x="260" y="22" class="dim">10,00</text>
+            <text x="508" y="244" class="dim" transform="rotate(90 508 244)">8,50</text>
+          </g>
+        </svg>
+        <div class="plan-foot mono">
+          <span>Área construída <b>68,40 m²</b></span>
+          <span>Folha 01/03</span>
+        </div>
+      </figure>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats">
-    <div class="container stats-grid">
-      <div class="reveal">
-        <div class="counter-num" data-target="15">0</div>
-        <div class="counter-label">Anos de atuação em engenharia</div>
-      </div>
-      <div class="reveal">
-        <div class="counter-num" data-target="120">0</div>
-        <div class="counter-label">Obras e reformas entregues</div>
-      </div>
-      <div class="reveal">
-        <div class="counter-num" data-target="98" data-suffix="%">0</div>
-        <div class="counter-label">Obras entregues no prazo</div>
-      </div>
-      <div class="reveal">
-        <div class="counter-num" data-target="40" data-suffix="mil m²">0</div>
-        <div class="counter-label">Área total construída</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process">
+  <!-- ================================================================
+       05 — STATS
+       ================================================================ -->
+  <section class="stats chapter-paper-continue" aria-label="Números">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>Da planta à chave na mão</h2>
-        <p>Um processo transparente, com marcos claros em cada etapa da obra.</p>
-      </div>
-      <div class="process-list">
-        <div class="process-item reveal">
-          <h3>Diagnóstico e viabilidade</h3>
-          <p>Visita técnica, levantamento do terreno e estudo de viabilidade financeira e estrutural.</p>
+      <div class="stats-grid">
+        <div class="stat reveal">
+          <span class="mono stat-tag">Desde a fundação</span>
+          <div class="stat-num"><span class="counter" data-target="15">0</span><small>anos</small></div>
+          <p>de atuação em engenharia</p>
         </div>
-        <div class="process-item reveal">
-          <h3>Projeto e aprovação</h3>
-          <p>Desenvolvimento do projeto arquitetônico e complementares, aprovação em órgãos competentes.</p>
+        <div class="stat reveal">
+          <span class="mono stat-tag">Portfólio</span>
+          <div class="stat-num"><span class="counter" data-target="120">0</span><small>+</small></div>
+          <p>obras e reformas entregues</p>
         </div>
-        <div class="process-item reveal">
-          <h3>Execução da obra</h3>
-          <p>Canteiro organizado, cronograma físico-financeiro e relatórios periódicos de acompanhamento.</p>
+        <div class="stat reveal">
+          <span class="mono stat-tag">Cronograma</span>
+          <div class="stat-num"><span class="counter" data-target="98">0</span><small>%</small></div>
+          <p>das obras entregues no prazo</p>
         </div>
-        <div class="process-item reveal">
-          <h3>Entrega e avaliação</h3>
-          <p>Vistoria final, laudo técnico e suporte pós-obra, incluindo avaliação patrimonial do imóvel.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Projetos que já saíram do papel</h2>
-        <p>Imagens ilustrativas — substitua pelas fotos reais das obras da Mont Real assim que estiverem disponíveis.</p>
-      </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-item pf-1 reveal"><div class="cover"></div><div class="item-label">Residência Alto Padrão — Zona Sul</div></div>
-        <div class="portfolio-item pf-2 reveal"><div class="cover"></div><div class="item-label">Reforma e Construções — Ampliação Residencial</div></div>
-        <div class="portfolio-item pf-3 reveal"><div class="cover"></div><div class="item-label">Condomínio Residencial</div></div>
-        <div class="portfolio-item pf-4 reveal"><div class="cover"></div><div class="item-label">Obra Pública — Ponte Rodoviária</div></div>
-        <div class="portfolio-item pf-5 reveal"><div class="cover"></div><div class="item-label">Casa Médio Padrão — Financiada pela Caixa</div></div>
-        <div class="portfolio-item pf-6 reveal"><div class="cover"></div><div class="item-label">Avaliação e Laudo Técnico</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Quem construiu com a gente</h2>
-        <p>Texto ilustrativo — substitua pelos depoimentos reais de clientes da Mont Real.</p>
-      </div>
-      <div class="testimonial-carousel reveal" id="testimonial-carousel">
-        <div class="testimonial-track" id="testimonial-track">
-          <blockquote class="testimonial-slide">
-            <p>"O acompanhamento técnico foi o diferencial. Sabíamos exatamente em que etapa a obra estava a cada semana."</p>
-            <footer>
-              <span class="testimonial-avatar">R</span>
-              <span><span class="testimonial-name">Cliente Residencial</span><span class="testimonial-role">Reforma completa</span></span>
-            </footer>
-          </blockquote>
-          <blockquote class="testimonial-slide">
-            <p>"Contratamos para uma obra pública e a prestação de contas foi impecável do início ao fim."</p>
-            <footer>
-              <span class="testimonial-avatar">S</span>
-              <span><span class="testimonial-name">Gestor Público</span><span class="testimonial-role">Secretaria Municipal</span></span>
-            </footer>
-          </blockquote>
-          <blockquote class="testimonial-slide">
-            <p>"Ajudaram com o financiamento e o projeto ao mesmo tempo, o que economizou meses de burocracia."</p>
-            <footer>
-              <span class="testimonial-avatar">M</span>
-              <span><span class="testimonial-name">Proprietário</span><span class="testimonial-role">Casa própria</span></span>
-            </footer>
-          </blockquote>
-        </div>
-        <div class="testimonial-controls">
-          <button class="testimonial-arrow" id="testimonial-prev" aria-label="Depoimento anterior">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
-          </button>
-          <div class="testimonial-dots" id="testimonial-dots"></div>
-          <button class="testimonial-arrow" id="testimonial-next" aria-label="Próximo depoimento">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
+        <div class="stat reveal">
+          <span class="mono stat-tag">Área</span>
+          <div class="stat-num"><span class="counter" data-target="40">0</span><small>mil m²</small></div>
+          <p>de área total construída</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
+  <!-- ================================================================
+       06 — PROCESS: horizontal pinned scroll (night)
+       ================================================================ -->
+  <section class="process chapter-night chapter-lift" id="process">
+    <div class="process-pin" id="process-pin">
+      <div class="container process-head">
+        <div>
+          <span class="eyebrow">Processo</span>
+          <h2 class="display">Da planta <em>à chave na mão</em></h2>
+        </div>
+        <div class="process-progress mono" aria-hidden="true">
+          <span id="process-count">01</span> / 04
+          <span class="process-bar"><span id="process-bar-fill"></span></span>
+        </div>
+      </div>
+      <div class="process-track" id="process-track">
+        <article class="step">
+          <div class="step-media"><img src="assets/img/portfolio/pf6-avaliacao.jpg" alt="Planta, trena e prancheta sobre mesa diante de uma casa" loading="lazy"></div>
+          <div class="step-copy">
+            <span class="mono step-num">01 — Semana 1</span>
+            <h3>Diagnóstico e viabilidade</h3>
+            <p>Visita técnica, levantamento do terreno e estudo de viabilidade financeira e estrutural antes de qualquer traço.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-media"><img src="assets/poster-about.jpg" alt="Desenho técnico a lápis de uma casa de dois pavimentos" loading="lazy"></div>
+          <div class="step-copy">
+            <span class="mono step-num">02 — Projeto</span>
+            <h3>Projeto e aprovação</h3>
+            <p>Projeto arquitetônico e complementares compatibilizados, com aprovação nos órgãos competentes.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-media"><img src="assets/img/hero-mid.jpg" alt="Casa em obra, com parte da estrutura de concreto ainda aparente" loading="lazy"></div>
+          <div class="step-copy">
+            <span class="mono step-num">03 — Obra</span>
+            <h3>Execução acompanhada</h3>
+            <p>Canteiro organizado, cronograma físico-financeiro e relatórios periódicos com fotos de cada etapa.</p>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-media"><img src="assets/img/hero-final.jpg" alt="Casa concluída ao entardecer, com iluminação externa acesa" loading="lazy"></div>
+          <div class="step-copy">
+            <span class="mono step-num">04 — Entrega</span>
+            <h3>Entrega e avaliação</h3>
+            <p>Vistoria final, laudo técnico e suporte pós-obra, incluindo avaliação patrimonial do imóvel.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       07 — FULL-BLEED BAND: what every project includes
+       ================================================================ -->
+  <section class="band" aria-label="O que cada obra inclui">
+    <div class="band-media"><img src="assets/img/hero-final.jpg" alt="" loading="lazy"></div>
+    <div class="band-shade"></div>
+    <div class="container band-inner">
+      <h2 class="band-title">Em cada obra,<br><em>o pacote completo</em></h2>
+      <div class="band-cols">
+        <div class="band-col reveal"><span class="mono">01</span><h3>Projeto arquitetônico</h3><p>Plantas, cortes, fachadas e detalhamento executivo.</p></div>
+        <div class="band-col reveal"><span class="mono">02</span><h3>Cálculo estrutural</h3><p>Fundação, pilares, vigas e lajes dimensionados por engenheiro.</p></div>
+        <div class="band-col reveal"><span class="mono">03</span><h3>Gestão de obra</h3><p>Compras, equipes e cronograma sob uma só coordenação.</p></div>
+        <div class="band-col reveal"><span class="mono">04</span><h3>Laudo e ART</h3><p>Responsabilidade técnica registrada e documentação para o cartório.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       08 — PORTFOLIO
+       Imagens ilustrativas: substituir pelas fotos reais das obras.
+       ================================================================ -->
+  <section class="portfolio chapter-night" id="portfolio">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>Antes de começar</h2>
+      <header class="section-head">
+        <div>
+          <span class="eyebrow">Obras</span>
+          <h2 class="display">Projetos que <em>saíram do papel</em></h2>
+        </div>
+        <p class="section-aside">Residências, conjuntos habitacionais e obras públicas. Diferentes escalas, a mesma assinatura técnica.</p>
+      </header>
+
+      <div class="works">
+        <figure class="work work-a reveal">
+          <div class="work-frame"><img src="assets/img/portfolio/pf1-alto-padrao.jpg" alt="Residência de alto padrão com piscina e jardim tropical" loading="lazy"></div>
+          <figcaption><span class="mono">01 · Residencial</span><strong>Residência alto padrão</strong></figcaption>
+        </figure>
+        <figure class="work work-b reveal">
+          <div class="work-frame"><img src="assets/img/portfolio/pf3-condominio.jpg" alt="Condomínio residencial com torres e portaria" loading="lazy"></div>
+          <figcaption><span class="mono">02 · Incorporação</span><strong>Condomínio residencial</strong></figcaption>
+        </figure>
+        <figure class="work work-c reveal">
+          <div class="work-frame"><img src="assets/img/portfolio/pf4-ponte.jpg" alt="Ponte rodoviária de concreto sobre rio" loading="lazy"></div>
+          <figcaption><span class="mono">03 · Obra pública</span><strong>Ponte rodoviária</strong></figcaption>
+        </figure>
+        <figure class="work work-d reveal">
+          <div class="work-frame"><img src="assets/img/portfolio/pf2-cobertura.jpg" alt="Ampliação residencial com andaimes e alvenaria em execução" loading="lazy"></div>
+          <figcaption><span class="mono">04 · Reforma</span><strong>Ampliação residencial</strong></figcaption>
+        </figure>
+        <figure class="work work-e reveal">
+          <div class="work-frame"><img src="assets/img/portfolio/pf5-medio-padrao.jpg" alt="Sobrado de médio padrão com garagem e jardim frontal" loading="lazy"></div>
+          <figcaption><span class="mono">05 · Financiamento</span><strong>Casa médio padrão</strong></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       09 — TESTIMONIALS (paper)
+       Texto ilustrativo: substituir pelos depoimentos reais de clientes.
+       ================================================================ -->
+  <section class="testimonials chapter-paper" id="testimonials">
+    <div class="container testimonials-grid">
+      <div>
+        <span class="eyebrow eyebrow-dark">Depoimentos</span>
+        <h2 class="display display-sm">Quem construiu <em>com a gente</em></h2>
+        <div class="quote-controls">
+          <button class="round-btn" id="quote-prev" aria-label="Depoimento anterior"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <span class="mono quote-count"><span id="quote-current">01</span> / <span id="quote-total">03</span></span>
+          <button class="round-btn" id="quote-next" aria-label="Próximo depoimento"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="quotes" id="quotes" tabindex="0" aria-live="polite">
+        <blockquote class="quote is-active">
+          <p>O acompanhamento técnico fez a diferença. A cada semana sabíamos exatamente em que etapa a obra estava e o que vinha depois.</p>
+          <footer><span class="quote-mark">R</span><span><b>Cliente residencial</b><span class="mono">Reforma completa</span></span></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <p>Contratamos para uma obra pública e a prestação de contas foi impecável, do início ao fim.</p>
+          <footer><span class="quote-mark">S</span><span><b>Gestor público</b><span class="mono">Secretaria municipal</span></span></footer>
+        </blockquote>
+        <blockquote class="quote">
+          <p>Cuidaram do financiamento e do projeto ao mesmo tempo. Economizamos meses de burocracia.</p>
+          <footer><span class="quote-mark">M</span><span><b>Proprietário</b><span class="mono">Casa própria</span></span></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       10 — FAQ (paper, side-by-side)
+       ================================================================ -->
+  <section class="faq chapter-paper-continue" id="faq">
+    <div class="container faq-grid">
+      <div class="faq-side">
+        <span class="eyebrow eyebrow-dark">Dúvidas</span>
+        <h2 class="display display-sm">Antes de <em>começar</em></h2>
+        <p>Não encontrou sua pergunta? <a href="#contact" class="text-link text-link-dark">Fale com um engenheiro</a></p>
       </div>
       <div class="faq-list">
-        <div class="faq-item reveal">
-          <button class="faq-question">A Mont Real também atende obras públicas de pequeno porte?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="faq-answer"><p>Sim. Atuamos tanto em grandes licitações quanto em obras públicas de menor porte, sempre com a mesma estrutura de gestão e prestação de contas.</p></div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span class="mono">01</span><span>A Mont Real também atende obras públicas de pequeno porte?</span><i aria-hidden="true"></i></button>
+          <div class="faq-a"><div><p>Sim. Atuamos em grandes licitações e em obras públicas de menor porte, sempre com a mesma estrutura de gestão e prestação de contas.</p></div></div>
         </div>
-        <div class="faq-item reveal">
-          <button class="faq-question">Vocês ajudam a conseguir financiamento antes de fechar o projeto?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="faq-answer"><p>Sim, a estruturação do financiamento pode começar em paralelo ao projeto, para que o crédito já esteja aprovado quando a obra iniciar.</p></div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span class="mono">02</span><span>Vocês ajudam a conseguir financiamento antes de fechar o projeto?</span><i aria-hidden="true"></i></button>
+          <div class="faq-a"><div><p>Sim. A estruturação do financiamento pode começar em paralelo ao projeto, para que o crédito já esteja aprovado quando a obra iniciar.</p></div></div>
         </div>
-        <div class="faq-item reveal">
-          <button class="faq-question">Fazem avaliação de imóveis sem contratar a obra?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="faq-answer"><p>Sim, o laudo de avaliação técnica é um serviço independente, usado para venda, garantia bancária ou processos judiciais.</p></div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span class="mono">03</span><span>Fazem avaliação de imóveis sem contratar a obra?</span><i aria-hidden="true"></i></button>
+          <div class="faq-a"><div><p>Sim. O laudo de avaliação técnica é um serviço independente, usado para venda, garantia bancária ou processos judiciais.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span class="mono">04</span><span>Como acompanho o andamento da minha obra?</span><i aria-hidden="true"></i></button>
+          <div class="faq-a"><div><p>Você recebe relatórios periódicos com fotos, avanço físico e financeiro, além de visitas agendadas ao canteiro com o engenheiro responsável.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
+  <!-- ================================================================
+       11 — CTA + CONTACT (night)
+       ================================================================ -->
+  <section class="contact chapter-night chapter-lift" id="contact">
+    <div class="cta-hero">
+      <div class="cta-media"><img src="assets/img/about-final.jpg" alt="" loading="lazy"></div>
+      <div class="cta-shade"></div>
+      <div class="container cta-inner">
+        <span class="eyebrow eyebrow-light">Próximo passo</span>
+        <h2 class="cta-title">Vamos tirar seu<br>projeto <em>do papel</em></h2>
+      </div>
+    </div>
+
     <div class="container contact-grid">
-      <div class="contact-info reveal">
-        <h2>Vamos tirar seu projeto do papel</h2>
-        <p>Preencha o formulário ou fale diretamente pelos canais abaixo.</p>
-        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> (00) 0000-0000</div>
-        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM22 6l-10 7L2 6"/></svg> contato@montrealengenharia.com.br</div>
-        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Quadra QE 21 SN, Loteamento Jardim Boa Sorte, Araguaína - TO</div>
-        <div class="contact-map" style="margin-top: var(--space-4);">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7917.024739050546!2d-48.244529724224435!3d-7.1822232704891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92d9128089eb1d5d%3A0x1da95bddbcce3cf6!2sR.%20QE-21%2C%20Aragua%C3%ADna%20-%20TO!5e0!3m2!1spt-BR!2sbr!4v1789267722502!5m2!1spt-BR!2sbr" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Mapa de localização — Mont Real Engenharia, Araguaína - TO"></iframe>
+      <div class="contact-info">
+        <p class="contact-lede">Conte o que você quer construir, reformar ou avaliar. Um engenheiro responde com os próximos passos.</p>
+        <dl class="contact-lines">
+          <div><dt class="mono">E-mail</dt><dd><a href="mailto:contato@montrealengenharia.com.br">contato@montrealengenharia.com.br</a></dd></div>
+          <div><dt class="mono">Telefone</dt><dd>(00) 0000-0000</dd></div>
+          <div><dt class="mono">Endereço</dt><dd>Quadra QE 21 SN, Loteamento Jardim Boa Sorte<br>Araguaína — TO</dd></div>
+        </dl>
+        <div class="bezel map-bezel">
+          <div class="bezel-core contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7917.024739050546!2d-48.244529724224435!3d-7.1822232704891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x92d9128089eb1d5d%3A0x1da95bddbcce3cf6!2sR.%20QE-21%2C%20Aragua%C3%ADna%20-%20TO!5e0!3m2!1spt-BR!2sbr!4v1789267722502!5m2!1spt-BR!2sbr" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Mapa de localização — Mont Real Engenharia, Araguaína - TO"></iframe>
+          </div>
         </div>
       </div>
-      <form class="form reveal" id="contact-form">
-        <div class="field"><label for="name">Nome</label><input type="text" id="name" required></div>
-        <div class="field"><label for="email">E-mail</label><input type="email" id="email" required></div>
-        <div class="field"><label for="service">Serviço de interesse</label>
-          <select id="service">
-            <option>Projetos de Engenharia</option>
-            <option>Financiamento Imobiliário</option>
-            <option>Reforma e Construções</option>
-            <option>Execução de Obras Públicas</option>
-            <option>Licitações</option>
-            <option>Avaliação de Imóveis</option>
-          </select>
-        </div>
-        <div class="field"><label for="message">Mensagem</label><textarea id="message"></textarea></div>
-        <button type="submit" class="button button-primary">Enviar mensagem</button>
-      </form>
+
+      <div class="bezel form-bezel">
+        <form class="bezel-core form" id="contact-form" novalidate>
+          <div class="form-head">
+            <span class="mono">Solicitação de orçamento</span>
+            <span class="mono form-id">MR—<span id="form-year">2026</span></span>
+          </div>
+          <div class="field">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <span class="field-error" data-for="name">Informe seu nome.</span>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <span class="field-error" data-for="email">Informe um e-mail válido.</span>
+          </div>
+          <fieldset class="field">
+            <legend>Serviço de interesse</legend>
+            <div class="chips" id="service-chips">
+              <label><input type="radio" name="service" value="Projetos de Engenharia" checked><span>Projetos</span></label>
+              <label><input type="radio" name="service" value="Financiamento Imobiliário"><span>Financiamento</span></label>
+              <label><input type="radio" name="service" value="Reforma e Construções"><span>Reforma e construção</span></label>
+              <label><input type="radio" name="service" value="Execução de Obras Públicas"><span>Obras públicas</span></label>
+              <label><input type="radio" name="service" value="Licitações"><span>Licitações</span></label>
+              <label><input type="radio" name="service" value="Avaliação de Imóveis"><span>Avaliação</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="4" placeholder="Ex.: terreno de 300 m² em Araguaína, casa térrea com 3 quartos"></textarea>
+          </div>
+          <button type="submit" class="pill pill-accent pill-block magnetic">
+            <span>Enviar solicitação</span>
+            <span class="pill-icon"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+          </button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -395,49 +620,29 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <span class="brand-mark">
-          <img src="assets/img/logo-icon.png" alt="" class="brand-icon">
-          <span class="brand-word"><span class="brand-word-main">Mont Real</span><span class="brand-word-sub">Engenharia</span></span>
-        </span>
-        <p>Projetos de engenharia, construção, reforma e avaliação de imóveis com o mesmo rigor técnico do primeiro traço ao último acabamento.</p>
-      </div>
-      <div class="footer-column">
-        <h4>Serviços</h4>
-        <ul>
-          <li><a href="#services">Projetos de Engenharia</a></li>
-          <li><a href="#services">Financiamento Imobiliário</a></li>
-          <li><a href="#services">Reforma e Construções</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Institucional</h4>
-        <ul>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#process">Processo</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Contato</h4>
-        <ul>
-          <li><a href="#contact">Fale conosco</a></li>
-          <li><a href="mailto:contato@montrealengenharia.com.br">E-mail</a></li>
-        </ul>
-      </div>
+    <div class="footer-top">
+      <p class="footer-claim">Engenharia do primeiro traço<br>ao último acabamento.</p>
+      <nav class="footer-nav" aria-label="Rodapé">
+        <a href="#about">Sobre</a>
+        <a href="#services">Serviços</a>
+        <a href="#process">Processo</a>
+        <a href="#portfolio">Obras</a>
+        <a href="#contact">Contato</a>
+      </nav>
+      <a href="#top" class="round-btn back-top" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Mont Real Engenharia. Todos os direitos reservados.</p>
-      <div class="footer-social">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
-        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
-      </div>
+    <div class="footer-word" aria-hidden="true">Mont Real</div>
+    <div class="footer-bottom mono">
+      <span>© <span id="footer-year">2026</span> Mont Real Engenharia</span>
+      <span>Araguaína — Tocantins</span>
+      <a href="mailto:contato@montrealengenharia.com.br">contato@montrealengenharia.com.br</a>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
